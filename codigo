@@ -1,51 +1,37 @@
-lista_vista = [1,2,3,4]
-lista_vista0=[1,2,3,4]
-lista_memo=["s","s","D","D"]
-print("Fichas y Posiciones: ",lista_vista)
-pregunta = int(input("Ingrese la posicion 1: "))
-lista_vista.remove(pregunta)
-lista_vista.insert(pregunta-1,lista_memo[pregunta-1])
-print("Fichas y Posiciones: ",lista_vista)
-pregunta2 = int(input("Ingrese la posicion 2: "))
-lista_vista.remove(pregunta2)
-lista_vista.insert(pregunta2-1,lista_memo[pregunta2-1])
-print("Fichas y Posiciones: ",lista_vista)
-
-contando_s = lista_vista.count("s")
-contando_D=lista_vista.count("D")
-
-if contando_s>1 or contando_D>1:
-    pregunta3 = int(input("Ingrese la posicion 3: "))
-    lista_vista.remove(pregunta3)
-    lista_vista.insert(pregunta3 - 1, lista_memo[pregunta3 - 1])
+def ingresando_numeros():
+    condicion = False
+    lista_vista = [1,2,3,4]
+    lista_memo=["s","s","D","D"]
     print("Fichas y Posiciones: ",lista_vista)
-    pregunta4 = int(input("Ingrese la posicion 3: "))
-    lista_vista.remove(pregunta4)
-    lista_vista.insert(pregunta4 - 1, lista_memo[pregunta4 - 1])
-    print("Fichas y Posiciones: ",lista_vista)
-    print("Felicitaciones! ganaste el memotest!")
-else:
-    print("No son iguales :c","volve a empezar!")
-    print("Fichas y Posiciones: ",lista_vista0)
     pregunta = int(input("Ingrese la posicion 1: "))
-    lista_vista0.remove(pregunta)
-    lista_vista0.insert(pregunta - 1, lista_memo[pregunta - 1])
-    print(lista_vista0)
+    lista_vista.remove(pregunta)
+    lista_vista.insert(pregunta-1,lista_memo[pregunta-1])
+    print("Fichas y Posiciones: ",lista_vista)
     pregunta2 = int(input("Ingrese la posicion 2: "))
-    lista_vista0.remove(pregunta2)
-    lista_vista0.insert(pregunta2 - 1, lista_memo[pregunta2 - 1])
-    print(lista_vista0)
+    lista_vista.remove(pregunta2)
+    lista_vista.insert(pregunta2-1,lista_memo[pregunta2-1])
+    print("Fichas y Posiciones: ",lista_vista)
 
-    contando_s = lista_vista0.count("s")
-    contando_D = lista_vista0.count("D")
+    contando_s = lista_vista.count("s")
+    contando_D=lista_vista.count("D")
 
-    if contando_s > 1 or contando_D > 1:
+    if contando_s>1 or contando_D>1:
         pregunta3 = int(input("Ingrese la posicion 3: "))
-        lista_vista0.remove(pregunta3)
-        lista_vista0.insert(pregunta3 - 1, lista_memo[pregunta3 - 1])
-        print(lista_vista0)
+        lista_vista.remove(pregunta3)
+        lista_vista.insert(pregunta3 - 1, lista_memo[pregunta3 - 1])
+        print("Fichas y Posiciones: ",lista_vista)
         pregunta4 = int(input("Ingrese la posicion 3: "))
-        lista_vista0.remove(pregunta4)
-        lista_vista0.insert(pregunta4 - 1, lista_memo[pregunta4 - 1])
-        print(lista_vista0)
+        lista_vista.remove(pregunta4)
+        lista_vista.insert(pregunta4 - 1, lista_memo[pregunta4 - 1])
+        print("Fichas y Posiciones: ",lista_vista)
         print("Felicitaciones! ganaste el memotest!")
+    else:
+        print("No son iguales :c","volve a empezar!")
+        condicion = False
+        while condicion==False:
+            ingresando_numeros()
+            if contando_s > 1 or contando_D > 1:
+                condicion=True
+            return condicion
+    print("se acabó el juego")
+ingresando_numeros()
